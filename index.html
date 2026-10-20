@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="기획자 양준서의 포트폴리오. 연극과 예술제를 기획하고 알렸고, 찬양팀 앱 샘물을 혼자 만들어 두 달 만에 4,600명과 만났습니다.">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0E0E0E">
 <link rel="canonical" href="https://joonseo.me/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://joonseo.me/">
@@ -27,7 +28,7 @@
    흰 바탕, 글꼴 하나, 회색 소개 한 단락, 검은 1px 선의 표.
    장식은 딱 하나: 행에 올리면 파란 기울임꼴. 데스크톱에선 포스터가 커서를 따라온다.
    10/21: "기획자 양준서"로 다시 씀 — 숫자로 / 만든 것(샘물) / 참여한 작업(+홍콩·뛰놀례·배신·홍보국·신년음악회).
-   10/21 밤: 구역 이름·표 머리는 영어로. 펼친 칸에 사진 묶음(3:2, 누르면 크게 보기).
+   10/21 밤: 다크모드(기기 설정 + 오른쪽 위 Dark/Light). 사진 묶음은 More photos를 눌러야 열린다. 구역 이름·표 머리는 영어로. 펼친 칸에 사진 묶음(3:2, 누르면 크게 보기).
    사진은 작은 판(img/m 480w, img/g 720w)을 먼저 받아 두고, 크게 볼 때만 큰 판(-l 1800w)을 받는다.
    근거는 본인 이력서·기획안·다큐멘테이션·큐시트(SSD)와 샘물 운영 DB. 9/24 판은 site-dpark-0924.html.
    ───────────────────────────────────────────────────────────── */
@@ -37,8 +38,16 @@
   --ink: #232323;
   --rule: #000000;
   --blue: #0000FF;
+  --ph: #232323;                      /* 사진이 오기 전 자리(무대 사진이 어두워서 어둡게) */
+  --shadow: rgba(0, 0, 0, .35);
   --font: "Inter Tight", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
 }
+/* 어두운 판: 흰 바탕의 반전. 선은 글자보다 조금 더 밝게(밝은 판에서 선이 글자보다 진한 것과 같은 관계),
+   파랑은 검은 바탕에서 읽히도록 밝힌다(대비 약 6:1) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { color-scheme: dark; --bg: #0E0E0E; --ink: #E6E6E6; --rule: #FFFFFF; --blue: #7B88FF; --ph: #1A1A1A; --shadow: rgba(0, 0, 0, .75); }
+}
+:root[data-theme="dark"] { color-scheme: dark; --bg: #0E0E0E; --ink: #E6E6E6; --rule: #FFFFFF; --blue: #7B88FF; --ph: #1A1A1A; --shadow: rgba(0, 0, 0, .75); }
 [hidden] { display: none !important; }
 * { box-sizing: border-box; }
 body {
@@ -52,7 +61,10 @@ a:hover { color: var(--blue); font-style: italic; }
 .gray { opacity: .7; }
 i { font-style: italic; }
 
-.wrap { width: min(80%, 1280px); margin: 0 auto; padding-bottom: 200px; }
+.wrap { position: relative; width: min(80%, 1280px); margin: 0 auto; padding-bottom: 200px; }
+.theme-btn { all: unset; position: absolute; top: 1pt; right: 0; line-height: 24px; cursor: pointer; opacity: .7; }
+.theme-btn:hover { opacity: 1; color: var(--blue); font-style: italic; }
+.theme-btn:focus-visible { outline: 1px solid var(--blue); outline-offset: 3px; }
 .intro { margin-top: 50px; width: min(50%, 620px); }
 h1 { margin: 1pt 0 12px; font-size: 17px; font-weight: 500; }
 .intro p { margin: 0; }
@@ -84,8 +96,11 @@ td.num { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 5
 .d .poster img { width: 200px; height: auto; display: block; }
 .zoom { all: unset; display: block; cursor: zoom-in; }
 .zoom:focus-visible { outline: 1px solid var(--blue); outline-offset: 3px; }
+.more { all: unset; display: block; width: max-content; margin-top: 16px; cursor: pointer; opacity: .7; text-decoration: underline; text-underline-offset: 2px; }
+.more:hover { opacity: 1; color: var(--blue); font-style: italic; }
+.more:focus-visible { outline: 1px solid var(--blue); outline-offset: 3px; }
 .shots { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.shots img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; background: var(--ink); }
+.shots img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; background: var(--ph); }
 .d p { margin: 0; }
 .d .desc { margin-top: 12px; max-width: 38em; }
 .cr { margin: 20px 0 0; max-width: 520px; border-top: 1px solid var(--rule); }
@@ -98,7 +113,7 @@ td.num { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 5
 /* 커서를 따라오는 포스터 */
 #peek {
   position: fixed; left: 0; top: 0; z-index: 10; width: 180px; height: auto; pointer-events: none;
-  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .35); opacity: 0; transition: opacity .12s;
+  box-shadow: 0 18px 40px -16px var(--shadow); opacity: 0; transition: opacity .12s;
 }
 #peek.on { opacity: 1; }
 
@@ -116,6 +131,7 @@ html.lb-on { overflow: hidden; }
 
 @media (max-width: 600px) {
   .wrap { width: auto; padding-inline: 16px; }
+  .theme-btn { right: 16px; }
   .intro { width: 100%; }
   .label { margin-top: 72px; }
   th, td { padding: 8px 12px 8px 0; }
@@ -129,10 +145,14 @@ html.lb-on { overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) { #peek { transition: none; } }
 </style>
+<script>
+try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
 </head>
 <body>
 <div lang="ko">
 <div class="wrap">
+  <button id="theme-btn" class="theme-btn" type="button" lang="en">Dark</button>
 
   <div class="intro">
     <h1>양준서 Joonseo Yang</h1>
@@ -235,8 +255,9 @@ html.lb-on { overflow: hidden; }
             <div><dt>초청</dt><dd lang="en">The Hong Kong Academy for Performing Arts</dd></div>
             <div><dt>제작</dt><dd>한국예술종합학교 연극원 창작플랫폼</dd></div>
           </dl>
+          <button class="more" type="button" aria-expanded="false" aria-controls="s-d0" lang="en">More photos (6)</button>
         </div>
-        <div class="shots">
+        <div class="shots" id="s-d0" hidden>
           <button class="zoom" type="button" data-full="img/g/hk-1-l.webp"><img src="img/g/hk-1.webp" width="720" height="480" alt="홍콩공연예술학원 연습실에서의 리허설" loading="lazy"></button>
           <button class="zoom" type="button" data-full="img/g/hk-2-l.webp"><img src="img/g/hk-2.webp" width="720" height="480" alt="홍콩 공연 장면" loading="lazy"></button>
           <button class="zoom" type="button" data-full="img/g/hk-3-l.webp"><img src="img/g/hk-3.webp" width="720" height="480" alt="홍콩 공연 장면" loading="lazy"></button>
@@ -278,8 +299,9 @@ html.lb-on { overflow: hidden; }
             <div class="me"><dt>기획</dt><dd>김태욱, <i>양준서</i></dd></div>
             <div><dt>제작</dt><dd>한국예술종합학교 연극원</dd></div>
           </dl>
+          <button class="more" type="button" aria-expanded="false" aria-controls="s-d8" lang="en">More photos (6)</button>
         </div>
-        <div class="shots">
+        <div class="shots" id="s-d8" hidden>
           <button class="zoom" type="button" data-full="img/g/betrayal-1-l.webp"><img src="img/g/betrayal-1.webp" width="720" height="480" alt="〈배신〉 1977년 장면" loading="lazy"></button>
           <button class="zoom" type="button" data-full="img/g/betrayal-2-l.webp"><img src="img/g/betrayal-2.webp" width="720" height="480" alt="〈배신〉 1977년, 제리의 서재" loading="lazy"></button>
           <button class="zoom" type="button" data-full="img/g/betrayal-3-l.webp"><img src="img/g/betrayal-3.webp" width="720" height="480" alt="〈배신〉 1973년, 베니스의 호텔 방" loading="lazy"></button>
@@ -338,8 +360,9 @@ html.lb-on { overflow: hidden; }
             <div><dt>무대감독</dt><dd>정은유</dd></div>
           </dl>
           <p class="gray links"><a href="https://www.instagram.com/certaninly_itis_night/" target="_blank" rel="noopener">공연 인스타그램</a></p>
+          <button class="more" type="button" aria-expanded="false" aria-controls="s-d2" lang="en">More photos (6)</button>
         </div>
-        <div class="shots">
+        <div class="shots" id="s-d2" hidden>
           <button class="zoom" type="button" data-full="img/g/night-1-l.webp"><img src="img/g/night-1.webp" width="720" height="480" alt="〈명백한 밤〉 공연 장면" loading="lazy"></button>
           <button class="zoom" type="button" data-full="img/g/night-2-l.webp"><img src="img/g/night-2.webp" width="720" height="480" alt="〈명백한 밤〉 공연 장면" loading="lazy"></button>
           <button class="zoom" type="button" data-full="img/g/night-3-l.webp"><img src="img/g/night-3.webp" width="720" height="480" alt="〈명백한 밤〉 공연 장면" loading="lazy"></button>
@@ -381,8 +404,9 @@ html.lb-on { overflow: hidden; }
             <div><dt>제작</dt><dd>한국예술종합학교 연극원</dd></div>
           </dl>
           <p class="gray links"><a href="https://www.instagram.com/neverbeforeseen.karts/" target="_blank" rel="noopener">공연 인스타그램</a></p>
+          <button class="more" type="button" aria-expanded="false" aria-controls="s-d3" lang="en">More photos (6)</button>
         </div>
-        <div class="shots">
+        <div class="shots" id="s-d3" hidden>
           <button class="zoom" type="button" data-full="img/g/midsummer-1-l.webp"><img src="img/g/midsummer-1.webp" width="720" height="480" alt="〈한 번도 못 본 한여름 밤의 꿈〉 공연 장면" loading="lazy"></button>
           <button class="zoom" type="button" data-full="img/g/midsummer-2-l.webp"><img src="img/g/midsummer-2.webp" width="720" height="480" alt="〈한 번도 못 본 한여름 밤의 꿈〉 공연 장면" loading="lazy"></button>
           <button class="zoom" type="button" data-full="img/g/midsummer-3-l.webp"><img src="img/g/midsummer-3.webp" width="720" height="480" alt="〈한 번도 못 본 한여름 밤의 꿈〉 공연 장면" loading="lazy"></button>
@@ -426,8 +450,9 @@ html.lb-on { overflow: hidden; }
             <div class="me"><dt>기획·홍보</dt><dd><i>양준서</i></dd></div>
             <div><dt>제작</dt><dd>한국예술종합학교 연극원</dd></div>
           </dl>
+          <button class="more" type="button" aria-expanded="false" aria-controls="s-d5" lang="en">More photos (6)</button>
         </div>
-        <div class="shots">
+        <div class="shots" id="s-d5" hidden>
           <button class="zoom" type="button" data-full="img/g/chekhov-1-l.webp"><img src="img/g/chekhov-1.webp" width="720" height="480" alt="〈숲의 체홉〉 공연 장면" loading="lazy"></button>
           <button class="zoom" type="button" data-full="img/g/chekhov-2-l.webp"><img src="img/g/chekhov-2.webp" width="720" height="480" alt="〈숲의 체홉〉 공연 장면" loading="lazy"></button>
           <button class="zoom" type="button" data-full="img/g/chekhov-3-l.webp"><img src="img/g/chekhov-3.webp" width="720" height="480" alt="〈숲의 체홉〉 공연 장면" loading="lazy"></button>
@@ -520,6 +545,30 @@ html.lb-on { overflow: hidden; }
   document.querySelectorAll(".link-row").forEach(function (row) {
     row.addEventListener("click", function (e) { if (e.target.closest("a")) return; row.querySelector("a").click(); });
   });
+
+  /* 사진 묶음: 처음엔 접어 두고 More photos로 연다 */
+  document.querySelectorAll(".more").forEach(function (b) {
+    var label0 = b.textContent;
+    b.addEventListener("click", function () {
+      var g = document.getElementById(b.getAttribute("aria-controls")), open = g.hidden;
+      g.hidden = !open; b.setAttribute("aria-expanded", String(open));
+      b.textContent = open ? "Hide photos" : label0;
+    });
+  });
+
+  /* 다크모드: 기본은 기기 설정. 버튼으로 바꾸면 그 선택을 기억한다 */
+  var root = document.documentElement, tb = document.getElementById("theme-btn");
+  var mq = window.matchMedia ? matchMedia("(prefers-color-scheme: dark)") : null;
+  function theme() { return root.getAttribute("data-theme") || (mq && mq.matches ? "dark" : "light"); }
+  function label() { tb.textContent = theme() === "dark" ? "Light" : "Dark"; }
+  tb.addEventListener("click", function () {
+    var next = theme() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    label();
+  });
+  if (mq && mq.addEventListener) mq.addEventListener("change", label);
+  label();
 
   /* 사진을 미리 받아 둔다: 처음엔 포스터 미리보기, 그다음 펼친 칸의 사진 */
   var got = {};
