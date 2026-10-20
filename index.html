@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="기획자 양준서의 포트폴리오. 연극과 예술제를 기획하고 알렸고, 찬양팀 앱 샘물을 혼자 만들어 두 달 만에 4,600명과 만났습니다.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="canonical" href="https://joonseo.me/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://joonseo.me/">
+<meta property="og:title" content="양준서 Joonseo Yang">
+<meta property="og:description" content="기획 · 홍보 · 앱 개발 — 공연, 축제, 그리고 샘물">
+<meta property="og:image" content="https://joonseo.me/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/img/avatar-180.png">
+<title>joonseo yang.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+KR:wght@400;500&display=swap">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   양준서 포트폴리오 — itsdpark.com 스타일(2026-10-21 사용자가 이 버전으로 정함).
+   흰 바탕, 글꼴 하나, 회색 소개 한 단락, 검은 1px 선의 표.
+   장식은 딱 하나: 행에 올리면 파란 기울임꼴. 데스크톱에선 포스터가 커서를 따라온다.
+   10/21: "기획자 양준서"로 다시 씀 — 숫자로 / 만든 것(샘물) / 참여한 작업(+홍콩·뛰놀례·배신·홍보국·신년음악회).
+   10/21 밤: 구역 이름·표 머리는 영어로. 펼친 칸에 사진 묶음(3:2, 누르면 크게 보기).
+   사진은 작은 판(img/m 480w, img/g 720w)을 먼저 받아 두고, 크게 볼 때만 큰 판(-l 1800w)을 받는다.
+   근거는 본인 이력서·기획안·다큐멘테이션·큐시트(SSD)와 샘물 운영 DB. 9/24 판은 site-dpark-0924.html.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  color-scheme: light;
+  --bg: #FFFFFF;
+  --ink: #232323;
+  --rule: #000000;
+  --blue: #0000FF;
+  --font: "Inter Tight", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+}
+[hidden] { display: none !important; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 16px/24px var(--font); text-rendering: geometricPrecision;
+  word-break: keep-all; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--ink); }
+a:hover { color: var(--blue); font-style: italic; }
+:focus-visible { outline: 1px solid var(--blue); outline-offset: 3px; }
+.gray { opacity: .7; }
+i { font-style: italic; }
+
+.wrap { width: min(80%, 1280px); margin: 0 auto; padding-bottom: 200px; }
+.intro { margin-top: 50px; width: min(50%, 620px); }
+h1 { margin: 1pt 0 12px; font-size: 17px; font-weight: 500; }
+.intro p { margin: 0; }
+.intro .links { margin-top: 24px; }
+.label { margin: 96px 0 24px; }
+
+/* 표 */
+table { width: 100%; border-collapse: collapse; }
+th { font-weight: 400; opacity: .7; }
+th, td { text-align: left; padding: 8px 16px 8px 0; border-bottom: 1px solid var(--rule); font-size: 16px; vertical-align: top; }
+th:last-child, td:last-child { padding-right: 0; }
+.right { text-align: right; }
+td.when { white-space: nowrap; font-variant-numeric: tabular-nums; }
+td.num { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 500; }
+.src-m { display: none; }
+
+.row { cursor: pointer; }
+.row:hover td, .row.open td { font-style: italic; color: var(--blue); }
+.row .t { all: unset; cursor: pointer; }
+.row .t:focus-visible { outline: 1px solid var(--blue); outline-offset: 3px; }
+.link-row { cursor: pointer; }
+.link-row:hover td { font-style: italic; color: var(--blue); }
+.link-row a { text-decoration: none; }
+
+/* 펼친 상세 */
+.detail td { padding: 20px 0 28px; }
+.d { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; align-items: start; max-width: 980px; }
+.d.noimg { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
+.d .poster img { width: 200px; height: auto; display: block; }
+.zoom { all: unset; display: block; cursor: zoom-in; }
+.zoom:focus-visible { outline: 1px solid var(--blue); outline-offset: 3px; }
+.shots { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.shots img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; background: var(--ink); }
+.d p { margin: 0; }
+.d .desc { margin-top: 12px; max-width: 38em; }
+.cr { margin: 20px 0 0; max-width: 520px; border-top: 1px solid var(--rule); }
+.cr > div { display: grid; grid-template-columns: 9em minmax(0, 1fr); gap: 16px; padding: 6px 0; border-bottom: 1px solid var(--rule); }
+.cr dt { opacity: .7; }
+.cr dd { margin: 0; }
+.cr .me dd i { color: var(--blue); }
+.d .links { margin-top: 16px; }
+
+/* 커서를 따라오는 포스터 */
+#peek {
+  position: fixed; left: 0; top: 0; z-index: 10; width: 180px; height: auto; pointer-events: none;
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .35); opacity: 0; transition: opacity .12s;
+}
+#peek.on { opacity: 1; }
+
+/* 크게 보기 */
+.lb {
+  position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; background: var(--bg);
+  padding: calc(env(safe-area-inset-top, 0px) + 56px) max(16px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.lb figure { margin: 0; width: 100%; display: grid; gap: 12px; justify-items: center; }
+.lb img { display: block; max-width: 100%; max-height: calc(100vh - 150px); max-height: calc(100dvh - 150px); width: auto; height: auto; cursor: pointer; }
+.lb-close { all: unset; position: absolute; top: calc(env(safe-area-inset-top, 0px) + 16px); right: max(16px, env(safe-area-inset-right, 0px)); cursor: pointer; }
+.lb-close:hover { color: var(--blue); font-style: italic; }
+.lb-close:focus-visible { outline: 1px solid var(--blue); outline-offset: 3px; }
+html.lb-on { overflow: hidden; }
+
+@media (max-width: 600px) {
+  .wrap { width: auto; padding-inline: 16px; }
+  .intro { width: 100%; }
+  .label { margin-top: 72px; }
+  th, td { padding: 8px 12px 8px 0; }
+  .c-type, .c-note, .c-view { display: none; }
+  .src-m { display: block; }
+  .d { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .d .poster img { width: min(64%, 240px); }
+  .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cr > div { grid-template-columns: 7em minmax(0, 1fr); }
+  #peek { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { #peek { transition: none; } }
+</style>
+</head>
+<body>
+<div lang="ko">
+<div class="wrap">
+
+  <div class="intro">
+    <h1>양준서 Joonseo Yang</h1>
+    <p class="gray">기획자 양준서입니다. 의미 있는 경험으로 사람들을 <i>한자리에</i> 모으는 일을 좋아합니다. 한국예술종합학교 연극원에서 예술경영을 공부하며 연극과 예술제를 기획하고 알렸고, 총학생회 홍보국장으로 학교의 이야기를 전했습니다. 올해 8월에는 교회 찬양팀을 위한 앱 샘물을 혼자 기획하고 만들기 시작해, 두 달이 채 안 돼 4,600명이 넘는 사용자와 만나고 있습니다.</p>
+    <p class="gray links"><a href="mailto:joyjsyang@gmail.com">joyjsyang@gmail.com</a>, <a href="https://www.instagram.com/joonseo__yang/" target="_blank" rel="noopener">instagram</a>, <a href="https://saemmul.app" target="_blank" rel="noopener">샘물</a></p>
+  </div>
+
+  <p class="gray label" lang="en">In Numbers:</p>
+  <table>
+    <thead lang="en"><tr><th>Figure</th><th>Description</th><th class="c-note">Source</th></tr></thead>
+    <tbody>
+      <tr><td class="num">4,600명+</td><td>앱 가입자, 첫 코드부터 두 달이 채 안 돼<span class="src-m gray">샘물 · 2026.10</span></td><td class="c-note">샘물 · 2026.10</td></tr>
+      <tr><td class="num">4주</td><td>첫 코드에서 App Store 출시까지<span class="src-m gray">샘물 · 2026.08 – 09</span></td><td class="c-note">샘물 · 2026.08 – 09</td></tr>
+      <tr><td class="num">907명</td><td>홍보를 시작한 다음 날, 하루 가입<span class="src-m gray">샘물 · 2026.10.03</span></td><td class="c-note">샘물 · 2026.10.03</td></tr>
+      <tr><td class="num">600명</td><td>인스타그램 개설 10일 만의 팔로워<span class="src-m gray">@saemmul.app</span></td><td class="c-note">@saemmul.app</td></tr>
+      <tr><td class="num">20만 회</td><td>인스타그램 누적 조회수<span class="src-m gray">@saemmul.app</span></td><td class="c-note">@saemmul.app</td></tr>
+      <tr><td class="num">1,108명</td><td>다섯 번의 공연을 찾은 관객<span class="src-m gray">〈한 번도 못 본 한여름 밤의 꿈〉 · 2025.10</span></td><td class="c-note">〈한 번도 못 본 한여름 밤의 꿈〉 · 2025.10</td></tr>
+      <tr><td class="num">12팀</td><td>무대 두 곳, 이틀 동안 올린 축제 공연<span class="src-m gray">예술제 〈뛰놀례〉 · 2026.05</span></td><td class="c-note">예술제 〈뛰놀례〉 · 2026.05</td></tr>
+    </tbody>
+  </table>
+
+  <p class="gray label" lang="en">Select Projects:</p>
+  <table>
+    <thead lang="en">
+      <tr><th>Title</th><th>Role</th><th class="c-type">Type</th><th class="c-note">Notes</th><th>Date</th><th class="right c-view"><span hidden>View</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="row" data-poster="img/m/saemmul.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="m1">샘물</button></td>
+        <td>창업, 기획·개발</td><td class="c-type">앱, iOS·Android·웹</td><td class="c-note">찬양팀의 콘티·악보·송폼을 한 번에, 가입자 4,600명+</td><td class="when">2026.08 –</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="m1" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/saemmul.webp"><img src="img/m/saemmul.webp" width="480" height="600" alt="샘물 소개 게시물 〈찬양팀 콘티, 만들고 나누고 예배까지〉" loading="lazy"></button>
+        <div>
+          <p>2026.08.28 첫 코드 · 2026.09.25 App Store 출시 · saemmul.app</p>
+          <p class="gray desc">교회 찬양팀이 매주 손으로 하던 악보 정리를 사진 한 장으로 바꾼 앱입니다. 악보 사진과 원곡 영상을 넣으면 곡의 전개(송폼)가 악보 위에 표시되고, 다른 키 악보, 팀과 함께 보는 콘티, 예배 중 인도자를 따라 악보가 넘어가는 예배 모드까지 이어집니다. 찬양팀에서 2년 동안 섬기며 겪은 불편에서 시작했고, 기획부터 디자인·개발·출시·홍보까지 혼자, AI 코딩 도구와 함께 만들었습니다.</p>
+          <dl class="cr">
+            <div class="me"><dt>기획·디자인·개발</dt><dd><i>양준서</i></dd></div>
+            <div><dt>사용자</dt><dd>가입자 4,600명+ (2026.10)</dd></div>
+            <div><dt>쓰인 만큼</dt><dd>곡 4,500곡+, 콘티 1,600개+, 예배 모드 500번+</dd></div>
+            <div><dt>만든 도구</dt><dd lang="en">Next.js, Supabase, Capacitor, Claude Code</dd></div>
+          </dl>
+          <p class="gray links"><a href="https://saemmul.app" target="_blank" rel="noopener">saemmul.app</a>, <a href="https://apps.apple.com/kr/app/id6810512172" target="_blank" rel="noopener">App Store</a></p>
+        </div>
+      </div></td></tr>
+
+      <tr class="row" data-poster="img/m/saemmul-instagram.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="m2">샘물 인스타그램</button></td>
+        <td>홍보, 콘텐츠 기획</td><td class="c-type">SNS, 카드뉴스·릴스</td><td class="c-note">개설 10일 만에 팔로워 600명, 누적 조회수 20만 회</td><td class="when">2026.10</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="m2" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/saemmul-instagram.webp"><img src="img/m/saemmul-instagram.webp" width="480" height="599" alt="샘물 인스타그램 게시물 표지 네 장" loading="lazy"></button>
+        <div>
+          <p>2026.10 · @saemmul.app</p>
+          <p class="gray desc">앱을 알리는 일도 직접 했습니다. 예배 모드, 다른 키 악보, 콘티 공유처럼 기능마다 실제 화면을 보여 주는 카드뉴스와 릴스, 자주 묻는 질문, 업데이트 소식을 기획해 꾸준히 올렸습니다. 홍보를 시작한 다음 날 하루에만 907명이 가입했고, 계정은 열흘 만에 팔로워 600명을 넘었습니다.</p>
+          <dl class="cr">
+            <div class="me"><dt>기획·제작·운영</dt><dd><i>양준서</i></dd></div>
+            <div><dt>팔로워</dt><dd>600명 (개설 10일)</dd></div>
+            <div><dt>누적 조회수</dt><dd>20만 회</dd></div>
+            <div><dt>하루 가입</dt><dd>907명 (홍보 시작 다음 날)</dd></div>
+          </dl>
+          <p class="gray links"><a href="https://www.instagram.com/saemmul.app/" target="_blank" rel="noopener">인스타그램</a></p>
+        </div>
+      </div></td></tr>
+
+      <tr class="row">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="m3">1인 공연 기획자를 위한 AI 업무 툴</button></td>
+        <td>제품 기획</td><td class="c-type">사이드 프로젝트, 기획안</td><td class="c-note">기획안·계약·예산·정산을 AI와 함께 자동으로</td><td class="when">2026.02</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="m3" hidden><td colspan="6"><div class="d noimg">
+        <div>
+          <p>2026.02 · 2026 Side Project 2</p>
+          <p class="gray desc">혼자 공연을 만드는 기획자는 기획안, 계약, 예산, 홍보, 티켓, 정산을 모두 혼자 챙기다 길을 잃곤 합니다. 다음 단계를 먼저 알려 주고, 쌓인 자료로 단계별 문서를 자동으로 만들어 주는 업무 툴을 기획했습니다. 공연 기획 중 관객 데이터를 정리하는 일을 AI로 줄였던 경험에서 출발했고, 시장·경쟁사 분석과 핵심 기능(문서 자동화, 예산·일정 관리, 데이터 인사이트), 개발 로드맵을 담은 기획안을 썼습니다.</p>
+          <dl class="cr">
+            <div class="me"><dt>기획</dt><dd><i>양준서</i></dd></div>
+            <div><dt>결과물</dt><dd>제품 기획안 18쪽</dd></div>
+          </dl>
+        </div>
+      </div></td></tr>
+    </tbody>
+  </table>
+
+  <p class="gray label" lang="en">Select Work:</p>
+  <table>
+    <thead lang="en">
+      <tr><th>Title</th><th>Role</th><th class="c-type">Type</th><th class="c-note">Notes</th><th>Date</th><th class="right c-view"><span hidden>View</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="row" data-poster="img/m/midsummer-hk.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d0">한 번도 못 본 한여름 밤의 꿈 in Hong Kong</button></td>
+        <td>기획</td><td class="c-type">연극, 해외 초청 공연</td><td class="c-note">홍콩공연예술학원(HKAPA) 초청</td><td class="when">2026.06</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d0" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/midsummer-hk.webp"><img src="img/m/midsummer-hk.webp" width="480" height="720" alt="〈한 번도 못 본 한여름 밤의 꿈〉 홍콩 공연 장면" loading="lazy"></button>
+        <div>
+          <p>2026.06 · 홍콩 · <span lang="en">The Hong Kong Academy for Performing Arts</span></p>
+          <p class="gray desc">2025년 가을 연극원 레퍼토리로 올린 〈한 번도 못 본 한여름 밤의 꿈〉이 홍콩공연예술학원(HKAPA)의 초청을 받아 홍콩 무대에 올랐습니다. 해외 교육기관, 아티스트들과 서로 다른 제작 환경과 시스템을 맞춰 가며 공연을 준비했습니다.</p>
+          <dl class="cr">
+            <div class="me"><dt>기획</dt><dd><i>양준서</i></dd></div>
+            <div><dt>초청</dt><dd lang="en">The Hong Kong Academy for Performing Arts</dd></div>
+            <div><dt>제작</dt><dd>한국예술종합학교 연극원 창작플랫폼</dd></div>
+          </dl>
+        </div>
+        <div class="shots">
+          <button class="zoom" type="button" data-full="img/g/hk-1-l.webp"><img src="img/g/hk-1.webp" width="720" height="480" alt="홍콩공연예술학원 연습실에서의 리허설" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/hk-2-l.webp"><img src="img/g/hk-2.webp" width="720" height="480" alt="홍콩 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/hk-3-l.webp"><img src="img/g/hk-3.webp" width="720" height="480" alt="홍콩 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/hk-4-l.webp"><img src="img/g/hk-4.webp" width="720" height="480" alt="홍콩 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/hk-5-l.webp"><img src="img/g/hk-5.webp" width="720" height="480" alt="홍콩 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/hk-6-l.webp"><img src="img/g/hk-6.webp" width="720" height="480" alt="공연을 마치고 관객과 함께 찍은 사진" loading="lazy"></button>
+        </div>
+      </div></td></tr>
+
+      <tr class="row" data-poster="img/m/ttwinolle.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d7">뛰놀례</button></td>
+        <td>공연팀장</td><td class="c-type">축제, 예술제</td><td class="c-note">무대 두 곳, 이틀, 잠비나이·최재림·키라라 등 12팀</td><td class="when">2026.05</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d7" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/ttwinolle.webp"><img src="img/m/ttwinolle.webp" width="480" height="600" alt="2026 한예종 예술제 〈뛰놀례〉 로고" loading="lazy"></button>
+        <div>
+          <p>2026.05.21 – 05.22 · 한예종 석관동 캠퍼스 미술원 앞 가설무대, 연희실습장 팔각정 · <span lang="en">2026 K-ARTS Festival</span></p>
+          <p class="gray desc">한국예술종합학교 예술제 〈뛰놀례〉의 공연을 이끌었습니다. 첫날은 낮의 체육대회가 끝나는 자리에 가설무대를 세워 경쟁의 장을 축제의 장으로 바꾸는 밤을 기획했습니다. 재학생 밴드 뒤로 동문 아티스트 잠비나이와 최재림의 무대를 이었습니다. 둘째 날은 팔각정에서 댄스, 1인 밴드, 전자음악을 다섯 시간 동안 이었습니다. 공연 기획안과 예산안, 무대별 운영 매뉴얼을 만들고, 일곱 명의 공연팀을 꾸려 함께 큐시트를 짜며 두 무대를 운영했습니다.</p>
+          <dl class="cr">
+            <div class="me"><dt>공연팀장</dt><dd><i>양준서</i></dd></div>
+            <div><dt>출연</dt><dd>잠비나이, 최재림, 키라라, 페기굿, 도깨비 외 재학생 팀</dd></div>
+            <div><dt>주최</dt><dd>한예종 제30대 총학생회 새:틀</dd></div>
+          </dl>
+        </div>
+      </div></td></tr>
+
+      <tr class="row" data-poster="img/m/betrayal-poster.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d8">배신</button></td>
+        <td>기획</td><td class="c-type">연극, 스튜디오 공연</td><td class="c-note">해럴드 핀터 작, 네 번의 공연에 관객 246명</td><td class="when">2026.04</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d8" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/betrayal-poster.webp"><img src="img/m/betrayal-poster.webp" width="480" height="640" alt="〈배신〉 포스터" loading="lazy"></button>
+        <div>
+          <p>2026.04.22 – 04.25 · 한예종 연극원 실험무대 · 2026-1 예술사 스튜디오 Ⅰ</p>
+          <p class="gray desc">해럴드 핀터의 〈배신〉. 1977년에서 1968년으로 거꾸로 흐르는 시간 속에서, 세 인물의 관계가 어떻게 시작됐는지를 끝에서부터 보여 주는 작품입니다. 사업계획서와 홍보계획, 공연 진행 계획을 세우고 여섯 주 동안 기획일지를 쓰며 공연을 올렸습니다. 오픈 리허설 두 번을 포함한 네 번의 공연에 246명이 찾았습니다.</p>
+          <dl class="cr">
+            <div><dt>작</dt><dd>해럴드 핀터</dd></div>
+            <div><dt>연출</dt><dd>김수민</dd></div>
+            <div class="me"><dt>기획</dt><dd>김태욱, <i>양준서</i></dd></div>
+            <div><dt>제작</dt><dd>한국예술종합학교 연극원</dd></div>
+          </dl>
+        </div>
+        <div class="shots">
+          <button class="zoom" type="button" data-full="img/g/betrayal-1-l.webp"><img src="img/g/betrayal-1.webp" width="720" height="480" alt="〈배신〉 1977년 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/betrayal-2-l.webp"><img src="img/g/betrayal-2.webp" width="720" height="480" alt="〈배신〉 1977년, 제리의 서재" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/betrayal-3-l.webp"><img src="img/g/betrayal-3.webp" width="720" height="480" alt="〈배신〉 1973년, 베니스의 호텔 방" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/betrayal-4-l.webp"><img src="img/g/betrayal-4.webp" width="720" height="480" alt="〈배신〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/betrayal-5-l.webp"><img src="img/g/betrayal-5.webp" width="720" height="480" alt="〈배신〉 레스토랑 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/betrayal-6-l.webp"><img src="img/g/betrayal-6.webp" width="720" height="480" alt="〈배신〉 1968년, 로버트와 엠마의 침실" loading="lazy"></button>
+        </div>
+      </div></td></tr>
+
+      <tr class="row" data-poster="img/m/off-control.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d1">탈통제</button></td>
+        <td>홍보</td><td class="c-type">신입생 환영회</td><td class="c-note">한예종 총학생회 새:틀 × 래이부, 저녁 6시부터 새벽 1시까지</td><td class="when">2026.03</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d1" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/off-control.webp"><img src="img/m/off-control.webp" width="480" height="600" alt="〈탈통제〉 포스터" loading="lazy"></button>
+        <div>
+          <p>2026.03.25 · 이어령예술극장 지하 연습실, 아지트 746 · <span lang="en">off control</span></p>
+          <p class="gray desc">한국예술종합학교 제30대 총학생회 새:틀과 래이부가 함께 연 2026 신입생 환영회 〈탈통제〉입니다. 사물놀이와 판굿, DJ 공연, 라이브 드로잉이 세 공간을 채웠습니다.</p>
+          <dl class="cr">
+            <div><dt>주최</dt><dd>한예종 제30대 총학생회 새:틀</dd></div>
+            <div><dt>총괄 및 기획</dt><dd>방세희, 황보민</dd></div>
+            <div class="me"><dt>홍보</dt><dd><i>양준서</i>, 이영은, 장예지</dd></div>
+          </dl>
+        </div>
+      </div></td></tr>
+
+      <tr class="row" data-poster="img/m/council.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d9">총학생회 새:틀 홍보국</button></td>
+        <td>홍보국장</td><td class="c-type">학생회</td><td class="c-note">조직 브랜딩과 대내외 커뮤니케이션, 학잠·돕바 공동구매</td><td class="when">2026</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d9" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/council.webp"><img src="img/m/council.webp" width="480" height="600" alt="한예종 제30대 총학생회 새:틀 회칙 공포 표지" loading="lazy"></button>
+        <div>
+          <p>2026 · 한국예술종합학교 제30대 총학생회 새:틀</p>
+          <p class="gray desc">총학생회 홍보국장으로 조직의 브랜딩과 대내외 커뮤니케이션을 총괄했습니다. 수많은 학생, 학교 안팎의 부서와 협력하며 신입생 환영회 〈탈통제〉 홍보, 학교 상표를 쓴 학잠·돕바 공동구매(제작 허가부터 디자이너 계약, 업체 시안까지), 명함 제작, 예술제 공연팀을 맡았습니다.</p>
+          <dl class="cr">
+            <div class="me"><dt>홍보국장</dt><dd><i>양준서</i></dd></div>
+            <div><dt>소속</dt><dd>한예종 제30대 총학생회 새:틀</dd></div>
+          </dl>
+        </div>
+      </div></td></tr>
+
+      <tr class="row" data-poster="img/m/certainly-night.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d2">명백한 밤</button></td>
+        <td>기획</td><td class="c-type">연극, 신작</td><td class="c-note">돌곶이 인큐베이터 워크숍, 상자무대 2에서 세 차례</td><td class="when">2026.01</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d2" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/certainly-night.webp"><img src="img/m/certainly-night.webp" width="480" height="676" alt="〈명백한 밤〉 포스터" loading="lazy"></button>
+        <div>
+          <p>2026.01.28 – 01.29 · 한예종 상자무대 2 · <span lang="en">Certainly, It Is Night</span></p>
+          <p class="gray desc">2026 겨울 돌곶이 인큐베이터 워크숍으로 만든 신작입니다. 배우 네 명과 함께 세 차례 올렸습니다.</p>
+          <dl class="cr">
+            <div><dt>연출과 작</dt><dd>문수진</dd></div>
+            <div><dt>협력연출</dt><dd>김아현, 최가람</dd></div>
+            <div class="me"><dt>기획</dt><dd><i>양준서</i></dd></div>
+            <div><dt>무대감독</dt><dd>정은유</dd></div>
+          </dl>
+          <p class="gray links"><a href="https://www.instagram.com/certaninly_itis_night/" target="_blank" rel="noopener">공연 인스타그램</a></p>
+        </div>
+        <div class="shots">
+          <button class="zoom" type="button" data-full="img/g/night-1-l.webp"><img src="img/g/night-1.webp" width="720" height="480" alt="〈명백한 밤〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/night-2-l.webp"><img src="img/g/night-2.webp" width="720" height="480" alt="〈명백한 밤〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/night-3-l.webp"><img src="img/g/night-3.webp" width="720" height="480" alt="〈명백한 밤〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/night-4-l.webp"><img src="img/g/night-4.webp" width="720" height="480" alt="〈명백한 밤〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/night-5-l.webp"><img src="img/g/night-5.webp" width="720" height="480" alt="〈명백한 밤〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/night-6-l.webp"><img src="img/g/night-6.webp" width="720" height="480" alt="〈명백한 밤〉 공연 장면" loading="lazy"></button>
+        </div>
+      </div></td></tr>
+
+      <tr class="row">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d10">2026 신년음악회</button></td>
+        <td>RSVP 운영</td><td class="c-type">국가 행사</td><td class="c-note">문화체육관광부 주최, 예술의전당 주관</td><td class="when">2025.12 – 2026.01</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d10" hidden><td colspan="6"><div class="d noimg">
+        <div>
+          <p>2025.12 – 2026.01 · 문화체육관광부 주최 · 예술의전당 주관</p>
+          <p class="gray desc">국가 행사인 2026 신년음악회에서 두 달 가까이 초청 관객의 RSVP 업무를 맡았습니다. 관객 데이터를 얼마나 정교하게 관리하느냐가 행사 전체의 운영 품질을 결정한다는 것, 그리고 큰 기관의 현장에서도 생기는 문제가 무엇인지를 배웠습니다.</p>
+          <dl class="cr">
+            <div class="me"><dt>RSVP 운영</dt><dd><i>양준서</i></dd></div>
+            <div><dt>주최·주관</dt><dd>문화체육관광부, 예술의전당</dd></div>
+          </dl>
+        </div>
+      </div></td></tr>
+
+      <tr class="row" data-poster="img/m/midsummer.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d3">한 번도 못 본 한여름 밤의 꿈</button></td>
+        <td>기획·홍보</td><td class="c-type">연극, 레퍼토리</td><td class="c-note">관객 1,108명, 대학·고교 단체관람 ‘캠퍼스 티켓’</td><td class="when">2025.10</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d3" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/midsummer.webp"><img src="img/m/midsummer.webp" width="480" height="679" alt="〈한 번도 못 본 한여름 밤의 꿈〉 포스터" loading="lazy"></button>
+        <div>
+          <p>2025.10.30 – 11.01 · 한예종 석관캠퍼스 이어령예술극장 · <span lang="en">Never Before Seen: A Midsummer Night’s Dream</span></p>
+          <p class="gray desc">셰익스피어의 『한여름 밤의 꿈』을 연극원 레퍼토리로 올렸습니다. 인근 대학과 고등학교 학생들을 단체로 초대하는 ‘캠퍼스 티켓’으로 관객층을 넓히고, NFT 온라인 티켓 도입을 시도했으며, 브이로그 형식의 릴스로 공연을 알렸습니다. 오픈 리허설을 포함한 다섯 번의 공연에 1,108명이 찾았고, 이듬해 홍콩공연예술학원의 초청을 받았습니다.</p>
+          <dl class="cr">
+            <div><dt>원작</dt><dd>윌리엄 셰익스피어</dd></div>
+            <div><dt>연출</dt><dd>윤시중</dd></div>
+            <div class="me"><dt>기획</dt><dd>정다은, <i>양준서</i></dd></div>
+            <div class="me"><dt>홍보·마케팅</dt><dd><i>양준서</i></dd></div>
+            <div><dt>제작</dt><dd>한국예술종합학교 연극원</dd></div>
+          </dl>
+          <p class="gray links"><a href="https://www.instagram.com/neverbeforeseen.karts/" target="_blank" rel="noopener">공연 인스타그램</a></p>
+        </div>
+        <div class="shots">
+          <button class="zoom" type="button" data-full="img/g/midsummer-1-l.webp"><img src="img/g/midsummer-1.webp" width="720" height="480" alt="〈한 번도 못 본 한여름 밤의 꿈〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/midsummer-2-l.webp"><img src="img/g/midsummer-2.webp" width="720" height="480" alt="〈한 번도 못 본 한여름 밤의 꿈〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/midsummer-3-l.webp"><img src="img/g/midsummer-3.webp" width="720" height="480" alt="〈한 번도 못 본 한여름 밤의 꿈〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/midsummer-4-l.webp"><img src="img/g/midsummer-4.webp" width="720" height="480" alt="〈한 번도 못 본 한여름 밤의 꿈〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/midsummer-5-l.webp"><img src="img/g/midsummer-5.webp" width="720" height="480" alt="〈한 번도 못 본 한여름 밤의 꿈〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/midsummer-6-l.webp"><img src="img/g/midsummer-6.webp" width="720" height="480" alt="관객이 티켓을 들고 무대를 찍는 모습" loading="lazy"></button>
+        </div>
+      </div></td></tr>
+
+      <tr class="row" data-poster="img/m/chekhov-forest-2.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d4">숲의 체홉, 또는 체홉의 숲</button></td>
+        <td>기획</td><td class="c-type">연극, 상업 공연</td><td class="c-note">관객 400여 명, 스토리 포레스트 제작</td><td class="when">2025.06</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d4" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/chekhov-forest-2.webp"><img src="img/m/chekhov-forest-2.webp" width="480" height="679" alt="〈숲의 체홉, 또는 체홉의 숲〉 포스터" loading="lazy"></button>
+        <div>
+          <p>2025.06.12 – 06.15 · 문래예술공장 박스씨어터</p>
+          <p class="gray desc">연극원 스튜디오 공연 〈숲의 체홉〉을 상업 공연으로 새롭게 제작했습니다. 체홉의 네 장막극을 하나로 엮은 작품이라 러닝타임이 길고 이야기를 따라가기 어렵다는 진입장벽이 있었습니다. 제작 초기부터 창작진과 타협점을 찾았고, 홍보물에 이야기의 길잡이가 될 요소를 넣어 관객의 문턱을 낮췄습니다. 400여 명의 관객이 관람했고, 공연 평론가와 일반 관객 모두에게 좋은 평가를 받았습니다.</p>
+          <dl class="cr">
+            <div><dt>원작</dt><dd>안톤 체홉</dd></div>
+            <div><dt>번안·각색·연출</dt><dd>김연민</dd></div>
+            <div class="me"><dt>기획</dt><dd><i>양준서</i></dd></div>
+            <div><dt>제작</dt><dd>스토리 포레스트</dd></div>
+          </dl>
+          <p class="gray links"><a href="http://www.playdb.co.kr/PlayDB/PlaydbDetail.asp?sReqPlayNo=217742" target="_blank" rel="noopener">PlayDB</a>, <a href="https://tickets.interpark.com/contents/notice/detail/9787" target="_blank" rel="noopener">NOL 티켓</a>, <a href="https://blog.naver.com/free_7985/223898638310" target="_blank" rel="noopener">관람평</a></p>
+        </div>
+      </div></td></tr>
+
+      <tr class="row" data-poster="img/m/chekhov-forest-1.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d5">숲의 체홉</button></td>
+        <td>기획·홍보</td><td class="c-type">연극, 스튜디오 공연</td><td class="c-note">체홉의 장막극 네 편을 한 무대에, 연극원 실험무대</td><td class="when">2025.05</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d5" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/chekhov-forest-1.webp"><img src="img/m/chekhov-forest-1.webp" width="480" height="600" alt="〈숲의 체홉〉 포스터" loading="lazy"></button>
+        <div>
+          <p>2025.05.22 – 05.24 · 한예종 연극원 B1 실험무대 · 2025-1 스튜디오 공연 전문사 연출 Ⅲ</p>
+          <p class="gray desc">『갈매기』, 『바냐 아저씨』, 『세 자매』, 『벚꽃 동산』. 체홉의 네 가지 대표 장막극이 우리의 이야기로 돌아옵니다. 1930년대부터 2000년대까지 시대와 장소를 가로지르며, 이주라는 키워드를 통해 변화, 상실, 희망, 그리고 인간 존재의 본질을 섬세하게 포착합니다. 네 개의 서로 다른 서사는 하나의 무대 위에서 유기적으로 연결되며 시대를 관통하는 깊은 울림을 만들어냅니다.</p>
+          <dl class="cr">
+            <div><dt>원작</dt><dd>안톤 체홉</dd></div>
+            <div><dt>번안·연출</dt><dd>김연민</dd></div>
+            <div class="me"><dt>기획·홍보</dt><dd><i>양준서</i></dd></div>
+            <div><dt>제작</dt><dd>한국예술종합학교 연극원</dd></div>
+          </dl>
+        </div>
+        <div class="shots">
+          <button class="zoom" type="button" data-full="img/g/chekhov-1-l.webp"><img src="img/g/chekhov-1.webp" width="720" height="480" alt="〈숲의 체홉〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/chekhov-2-l.webp"><img src="img/g/chekhov-2.webp" width="720" height="480" alt="〈숲의 체홉〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/chekhov-3-l.webp"><img src="img/g/chekhov-3.webp" width="720" height="480" alt="〈숲의 체홉〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/chekhov-4-l.webp"><img src="img/g/chekhov-4.webp" width="720" height="480" alt="〈숲의 체홉〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/chekhov-5-l.webp"><img src="img/g/chekhov-5.webp" width="720" height="480" alt="〈숲의 체홉〉 공연 장면" loading="lazy"></button>
+          <button class="zoom" type="button" data-full="img/g/chekhov-6-l.webp"><img src="img/g/chekhov-6.webp" width="720" height="480" alt="〈숲의 체홉〉 공연 장면" loading="lazy"></button>
+        </div>
+      </div></td></tr>
+
+      <tr class="row" data-poster="img/m/five-minutes-kids.webp">
+        <td><button class="t" type="button" aria-expanded="false" aria-controls="d6">케이아-츠통신</button></td>
+        <td>기획, 기획보조</td><td class="c-type">축제, 예술제</td><td class="c-note">예술제 공연기획팀, 퍼레이드 〈파이브 미-닛 키즈〉 기획보조</td><td class="when">2024.10</td><td class="right c-view" lang="en">View</td>
+      </tr>
+      <tr class="detail" id="d6" hidden><td colspan="6"><div class="d">
+        <button class="zoom poster" type="button" data-full="img/five-minutes-kids.webp"><img src="img/m/five-minutes-kids.webp" width="480" height="679" alt="퍼레이드 〈파이브 미-닛 키즈〉 포스터" loading="lazy"></button>
+        <div>
+          <p>2024.10.10 – 10.11 · 한예종 석관동 캠퍼스 일대 · <span lang="en">2024 K-ARTS Festival</span></p>
+          <p class="gray desc">석관동 캠퍼스 일대에서 이틀간 열린 한국예술종합학교 예술제입니다. 공연기획팀에서 축제 안의 공연을 기획했고, 이어령 극장 앞에서 미술원까지 캠퍼스를 가로지른 퍼레이드 〈파이브 미-닛 키즈〉에서 기획보조를 맡았습니다.</p>
+          <dl class="cr">
+            <div class="me"><dt>공연 기획</dt><dd><i>양준서</i></dd></div>
+            <div><dt>퍼레이드 프로듀서</dt><dd>정다은</dd></div>
+            <div><dt>퍼레이드 기획</dt><dd>안지민</dd></div>
+            <div class="me"><dt>퍼레이드 기획보조</dt><dd>장민혁, <i>양준서</i></dd></div>
+          </dl>
+          <p class="gray links"><a href="https://youtu.be/cxfEemMAm9c" target="_blank" rel="noopener">퍼레이드 영상</a>, <a href="https://youtu.be/RRumrn2y--0" target="_blank" rel="noopener">현장 스케치</a></p>
+        </div>
+      </div></td></tr>
+    </tbody>
+  </table>
+
+  <p class="gray label" lang="en">Reviews:</p>
+  <table>
+    <thead lang="en"><tr><th>Title</th><th class="c-type">Type</th><th class="c-note">Summary</th><th>Date</th><th class="right c-view"><span hidden>Link</span></th></tr></thead>
+    <tbody>
+      <tr class="link-row" data-href="https://blog.naver.com/free_7985/223898638310">
+        <td><a href="https://blog.naver.com/free_7985/223898638310" target="_blank" rel="noopener">나무는 바뀌어도 숲은 여전하다</a></td>
+        <td class="c-type">관람평</td>
+        <td class="c-note">〈숲의 체홉, 또는 체홉의 숲〉을 본 관객 안닭의 후기. “4개의 이야기는 마구 섞이지만 이어진다.”</td>
+        <td class="when">2025.06.14</td>
+        <td class="right c-view" lang="en">Read</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="gray label" lang="en">Elsewhere:</p>
+  <table>
+    <thead lang="en"><tr><th>Name</th><th>Role</th><th>When</th></tr></thead>
+    <tbody>
+      <tr><td lang="en">Mobbin Fellowship</td><td>멤버</td><td class="when">2025</td></tr>
+      <tr><td>글:애도</td><td>독서모임 운영, 한 해 10권 넘게</td><td class="when">2025 –</td></tr>
+      <tr><td>노인 고독사를 다룬 다큐멘터리, 단편영화</td><td>제작</td><td class="when">중·고등학교 때</td></tr>
+    </tbody>
+  </table>
+
+  <p class="gray label" lang="en">Education &amp; Tools:</p>
+  <table>
+    <thead lang="en"><tr><th>Name</th><th>Type</th><th>When</th></tr></thead>
+    <tbody>
+      <tr><td>한국예술종합학교 연극원 예술경영전공</td><td>학사 과정</td><td class="when">2024 –</td></tr>
+      <tr><td>독수리 교육 공동체</td><td>기독교 대안학교, 고등학교</td><td class="when"></td></tr>
+      <tr><td lang="en">Premiere Pro, Photoshop, Illustrator, Figma</td><td>디자인·영상</td><td class="when"></td></tr>
+      <tr><td lang="en">Next.js, Supabase, Capacitor, Claude Code</td><td>웹·앱 개발</td><td class="when"></td></tr>
+    </tbody>
+  </table>
+
+</div>
+<img id="peek" alt="" aria-hidden="true">
+<div id="lb" class="lb" role="dialog" aria-modal="true" aria-label="사진 크게 보기" hidden>
+  <button id="lb-close" class="lb-close" type="button" lang="en">Close</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap" class="gray"></figcaption></figure>
+</div>
+</div>
+
+<script>
+(function () {
+  /* 행을 누르면 바로 아래 상세가 펼쳐진다 */
+  function toggle(row) {
+    var btn = row.querySelector(".t");
+    var d = document.getElementById(btn.getAttribute("aria-controls"));
+    var open = d.hidden;
+    d.hidden = !open;
+    btn.setAttribute("aria-expanded", String(open));
+    row.classList.toggle("open", open);
+    var v = row.querySelector(".c-view"); if (v) v.textContent = open ? "Close" : "View";
+  }
+  var rows = document.querySelectorAll(".row");
+  rows.forEach(function (row) {
+    row.addEventListener("click", function () { toggle(row); });
+  });
+  document.querySelectorAll(".link-row").forEach(function (row) {
+    row.addEventListener("click", function (e) { if (e.target.closest("a")) return; row.querySelector("a").click(); });
+  });
+
+  /* 사진을 미리 받아 둔다: 처음엔 포스터 미리보기, 그다음 펼친 칸의 사진 */
+  var got = {};
+  function warm(src) { if (!src || got[src]) return; got[src] = 1; var im = new Image(); im.decoding = "async"; im.src = src; }
+  function warmRow(row) {
+    var d = row.nextElementSibling;
+    if (d) d.querySelectorAll("img").forEach(function (i) { warm(i.getAttribute("src")); });
+  }
+  var fine = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
+  function warmAll() {
+    rows.forEach(function (r) { warm(r.dataset.poster); });
+    if (fine) setTimeout(function () { rows.forEach(warmRow); }, 600);   // 휴대폰은 데이터를 아끼려고 누를 때만
+  }
+  if (document.readyState === "complete") warmAll(); else addEventListener("load", warmAll);
+  rows.forEach(function (row) {
+    row.addEventListener("mouseenter", function () { warmRow(row); });
+    row.addEventListener("touchstart", function () { warmRow(row); }, { passive: true });
+  });
+
+  /* 크게 보기: 펼친 칸의 포스터나 사진을 누르면. 작은 사진을 먼저 띄우고 큰 사진이 오면 바꾼다 */
+  var lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img"),
+      lbCap = document.getElementById("lb-cap"), lbClose = document.getElementById("lb-close");
+  var list = [], at = 0, name = "", back = null, x0 = null;
+  function show(i) {
+    at = (i + list.length) % list.length;
+    var b = list[at], small = b.querySelector("img");
+    lbImg.src = small.currentSrc || small.src; lbImg.alt = small.alt;
+    var big = new Image();
+    big.onload = function () { if (list[at] === b && !lb.hidden) lbImg.src = big.src; };
+    big.src = b.dataset.full;
+    if (list.length > 1) warm(list[(at + 1) % list.length].dataset.full);
+    lbCap.textContent = "〈" + name + "〉" + (list.length > 1 ? "  " + (at + 1) + " / " + list.length : "");
+  }
+  function openLb(b) {
+    list = [].slice.call(b.closest(".d").querySelectorAll(".zoom"));
+    name = b.closest("tr").previousElementSibling.querySelector(".t").textContent;
+    back = b; lb.hidden = false; document.documentElement.classList.add("lb-on");
+    show(list.indexOf(b)); lbClose.focus();
+  }
+  function closeLb() {
+    lb.hidden = true; document.documentElement.classList.remove("lb-on"); lbImg.removeAttribute("src");
+    if (back) back.focus();
+  }
+  document.querySelectorAll(".zoom").forEach(function (b) { b.addEventListener("click", function () { openLb(b); }); });
+  lbImg.addEventListener("click", function (e) { e.stopPropagation(); if (list.length > 1) show(at + 1); else closeLb(); });
+  lb.addEventListener("click", function (e) { if (e.target !== lbImg) closeLb(); });
+  document.addEventListener("keydown", function (e) {
+    if (lb.hidden) return;
+    if (e.key === "Escape") closeLb();
+    else if (e.key === "ArrowRight") show(at + 1);
+    else if (e.key === "ArrowLeft") show(at - 1);
+    else if (e.key === "Tab") { e.preventDefault(); lbClose.focus(); }
+  });
+  lb.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40 && list.length > 1) { e.preventDefault(); show(at + (dx < 0 ? 1 : -1)); }
+  });
+
+  /* 데스크톱: 행에 올리면 포스터가 커서를 따라온다(포스터가 없는 행은 그냥 넘어간다) */
+  var peek = document.getElementById("peek");
+  if (!fine || !peek) return;
+  var W = 180, over = null;
+  function place(e) {
+    var h = peek.offsetHeight || W * 1.41;
+    var x = e.clientX + 24, y = e.clientY + 18;
+    if (x + W > innerWidth - 12) x = e.clientX - W - 24;
+    if (y + h > innerHeight - 12) y = innerHeight - h - 12;
+    peek.style.transform = "translate(" + x + "px," + y + "px)";
+  }
+  rows.forEach(function (row) {
+    if (!row.dataset.poster) return;
+    row.addEventListener("mouseenter", function (e) {
+      if (row.classList.contains("open")) return;
+      over = row; peek.src = row.dataset.poster; place(e);
+      if (peek.complete) peek.classList.add("on");
+      else peek.onload = function () { if (over === row && !row.classList.contains("open")) peek.classList.add("on"); };
+    });
+    row.addEventListener("mousemove", function (e) { if (!row.classList.contains("open")) place(e); });
+    row.addEventListener("mouseleave", function () { over = null; peek.classList.remove("on"); });
+    row.addEventListener("click", function () { peek.classList.remove("on"); });
+  });
+})();
+</script>
+</body>
+</html>
